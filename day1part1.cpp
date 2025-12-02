@@ -4,7 +4,7 @@ using namespace std;
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
-    freopen("day1part1.txt", "r", stdin);
+    freopen("input.txt", "r", stdin);
 
     string line;
     int dial = 50;
