@@ -63,25 +63,6 @@ long long calc(const string& x, bool incl) {
     return res;
 }
 
-long long calc2(string x, bool incl) {
-    long long res=0;
-    long long a = stoll(x);
-    for (long long i = 1; i <= a-!incl; ++i){
-        string s=to_string(i);
-        bool ok=s.size()%2==0;
-        for (int j=s.size()/2; j<s.size();++j){
-            if (s[j]!=s[j-s.size()/2]){
-                ok=false;
-                break;
-            }
-        }
-        if (ok){
-            res+=i;
-        }
-    }
-    return res;
-}
-
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
