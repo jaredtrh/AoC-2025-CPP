@@ -36,11 +36,9 @@ long long calc(const string& x, bool incl) {
     if (x.size() % 2 == 0) {
         long long pre = 0;
         for (int i = 0; i < x.size() / 2; ++i) {
-            for (int dig = i == 0; dig < x[i] - '0'; ++dig) {
-                long long predig = pre * 10 + dig;
-                res += (p[x.size() / 2] + 1) * rangesum(predig * p[x.size() / 2 - i - 1], (predig + 1) * p[x.size() / 2 - i - 1]);
-            }
-            pre = pre * 10 + x[i] - '0';
+            pre *= 10;
+            res += (p[x.size() / 2] + 1) * rangesum((pre + (i == 0)) * p[x.size() / 2 - i - 1], (pre + x[i] - '0') * p[x.size() / 2 - i - 1]);
+            pre += x[i] - '0';
         }
         bool ok = true;
         for (int i = x.size() / 2; i < x.size(); ++i) {
